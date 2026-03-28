@@ -1,0 +1,215 @@
+:root {
+    --bg-color: #141414;
+    --text-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+}
+
+body.dark {
+    --bg-color: #141414;
+    --text-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+}
+
+body.light {
+    --bg-color: #f5f5f5;
+    --text-color: #1b1b1b;
+    --card-bg: rgba(0, 0, 0, 0.05);
+    --card-border: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    /* Fonte primária do site, com fallback para sans-serif */
+    font-family: 'arial black', arial;
+    /* Fundo escuro estilo Netflix */
+    background-color: var(--bg-color);
+    /* Cor do texto em branco para alto contraste */
+    color: var(--text-color);
+    /* Remove espaçamentos default do corpo */
+    margin: 0;
+    padding: 0;
+    /* Usa flexbox para centralizar conteúdo horizontal e verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Força altura 100% da viewport para layout de tela cheia */
+    height: 100vh;
+    /* Esconde overflow para evitar barras de rolagem */
+    overflow: hidden;
+}
+
+main {
+    /* Centraliza texto dentro do main */
+    text-align: center;
+    /* Limita largura para não esticar demais em telas grandes */
+    max-width: 800px;
+    /* Ocupa toda largura disponível até o max-width */
+    width: 100%;
+}
+
+h1 {
+    /* Tamanho grande de título principal */
+    font-size: 3rem;
+    /* Espaçamento inferior para separar do conteúdo */
+    margin-bottom: 3rem;
+    /* Peso de fonte normal para visual moderno */
+    font-weight: 400;
+}
+
+.profiles {
+    /* Exibe os perfis lado a lado */
+    display: flex;
+    justify-content: center;
+    /* Espaço entre cards */
+    gap: 2rem;
+    /* Permite quebra em várias linhas em telas pequenas */
+    flex-wrap: wrap;
+}
+
+.profiles ul {
+    /* Remove marcadores da lista */
+    list-style: none;
+    /* Remove espaçamento e recuo padrão do ul */
+    margin: 0;
+    padding: 0;
+    /* Exibe itens em linha flexível */
+    display: flex;
+    gap: 2rem;
+    /* Alinha horizontalmente mesmo em li individuais */
+    flex-wrap: wrap;
+}
+
+.profiles ul li {
+    /* Remove marcadores do li, caso herde algum style */
+    list-style: none;
+    /* Mantém layout lado a lado */
+    display: inline-flex;
+}
+
+.profile {
+    /* Organiza elementos internos do card em coluna */
+    display: flex;
+    flex-direction: column;
+    /* Centraliza conteúdo dentro do card */
+    align-items: center;
+    /* Mostra que é clicável */
+    cursor: pointer;
+    /* Anima transformações do card */
+    transition: transform 0.3s ease;
+    /* Remove espaçamento interno */
+    padding: 0;
+    /* Cantos arredondados do card */
+    border-radius: 1.5rem;
+    /* Remove cor de fundo */
+    background-color: transparent;
+    /* Remove contorno/borda para display limpo */
+    border: none;
+}
+
+.profile:hover {
+    /* Aumenta o perfil ao passar o mouse */
+    transform: scale(1.05);
+}
+
+.profile img {
+    /* Tamanho fixo do avatar */
+    width: 120px;
+    height: 120px;
+    /* Leve arredondamento do avatar */
+    border-radius: 0.25rem;
+    /* Mantém proporção da imagem e recorta se necessário */
+    object-fit: cover;
+    /* Espaço entre imagem e nome */
+    margin-bottom: 0.5rem;
+}
+
+.profile p {
+    /* Texto do nome do perfil um pouco maior */
+    font-size: 1.2rem;
+    /* Remove margem padrão do parágrafo */
+    margin: 0;
+    /* Texto mais leve para estilo Netflix */
+    font-weight: 300;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* nova fonte */
+
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    h1 {
+        /* Reduz tamanho do título em tablets */
+        font-size: 2.5rem;
+        /* Ajusta margem inferior */
+        margin-bottom: 2rem;
+    }
+
+    .profiles {
+        /* Reduz espaço entre perfis */
+        gap: 1.5rem;
+    }
+
+    .profile {
+        /* Reduz padding interno */
+        padding: 0.8rem;
+    }
+
+    .profile img {
+        /* Reduz tamanho da imagem */
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile p {
+        /* Reduz tamanho da fonte */
+        font-size: 1rem;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    body {
+        /* Permite rolagem vertical em telas muito pequenas */
+        overflow: auto;
+        /* Ajusta altura para conteúdo */
+        height: auto;
+        min-height: 100vh;
+        /* Adiciona padding lateral */
+        padding: 1rem;
+    }
+
+    main {
+        /* Remove max-width para ocupar mais espaço */
+        max-width: none;
+    }
+
+    h1 {
+        /* Título ainda menor */
+        font-size: 2rem;
+        /* Margem ajustada */
+        margin-bottom: 1.5rem;
+    }
+
+    .profiles {
+        /* Espaço menor entre perfis */
+        gap: 1rem;
+        /* Centraliza ainda mais */
+        justify-content: center;
+    }
+
+    .profile {
+        /* Padding reduzido */
+        padding: 0.5rem;
+    }
+
+    .profile img {
+        /* Imagem menor */
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile p {
+        /* Fonte menor */
+        font-size: 0.9rem;
+    }
+}
